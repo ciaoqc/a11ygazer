@@ -62,9 +62,10 @@ const openReport = () => {
       <button
         @click="openReport"
         class="btn btn-primary"
+        disabled
       >
-        <i class="bi bi-file-text-fill ms-2"></i>
-        <span>Produire le rapport</span>
+        <!-- <i class="bi bi-file-text-fill ms-2"></i> -->
+        <span>Afficher le rapport</span>
       </button>
     </div>
 

@@ -88,7 +88,7 @@ const currentRouteName = computed(() => router.currentRoute.value.name)
         </router-link>
 
         <!-- REPORT tab -->
-        <router-link
+        <!-- <router-link
           :to="{ name: 'projectreport' }"
           custom
           v-slot="{ navigate }"
@@ -111,10 +111,10 @@ const currentRouteName = computed(() => router.currentRoute.value.name)
               aria-hidden="true"
             >Rapport</span>
           </button>
-        </router-link>
+        </router-link> -->
 
         <!-- CHECKLIST tab -->
-        <router-link
+        <!-- <router-link
           :to="{ name: 'projectchecklist' }"
           custom
           v-slot="{ navigate }"
@@ -137,7 +137,7 @@ const currentRouteName = computed(() => router.currentRoute.value.name)
               aria-hidden="true"
             >Checklist</span>
           </button>
-        </router-link>
+        </router-link> -->
 
       </nav>
 

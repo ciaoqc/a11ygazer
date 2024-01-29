@@ -15,6 +15,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: boolean): void
+  (e: 'close'): void
 }>()
 
 const projectStore = useProjectStore()
@@ -35,7 +36,7 @@ onMounted(() => {
   validateForm()
   modalTitle.value = props.mode === 'create'
     ? 'Nouveau problème'
-    : tempIssue.value?.title
+    : 'Modifier un problème'
 })
 
 watch(() => props.modelValue, (modelValue) => {
@@ -54,6 +55,7 @@ function show() {
 
 function hide() {
   emit('update:modelValue', false)
+  emit('close')
   dialogVisible.value = false
 }
 

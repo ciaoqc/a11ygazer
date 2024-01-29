@@ -58,11 +58,10 @@ npm run lint
     - Tableur
   - Rapport
 
-
 ## TODO
 
 - Prise en charge des images
-- Gestion des pages cassée
+- Gestion des pages cassées
 - Définir les sections de description pour les projets
   - Moteur de template (simple)?
 - Checklists par projet

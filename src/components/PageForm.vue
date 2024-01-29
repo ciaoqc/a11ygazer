@@ -19,70 +19,63 @@ watch(
   },
   { deep: true }
 )
-
 </script>
 
 <template>
   <form
     v-if="tempPage"
     class="needs-validation"
-    autocomplete="off"
-  >
+    autocomplete="off">
 
     <!-- TITLE  -->
-    <div class="mb-3">
-      <label
-        for="page-title"
-        class="form-label"
-      >Titre <span class="visually-hidden">de la page</span>
-        <span
-          class="text-danger"
-          aria-hidden="true"
-        >*</span>
-      </label>
+    <div class="form-floating mb-3">
       <input
         type="text"
         class="form-control"
         id="page-title"
         v-model="tempPage.title"
+        placeholder=""
         autofocus
-        required
-      >
+        required>
+      <label
+        for="page-title"
+        class="form-label">Titre <span class="visually-hidden">de la page</span>
+        <span
+          class="text-danger"
+          aria-hidden="true">*</span>
+      </label>
     </div>
 
     <!-- URL  -->
-    <div class="mb-3">
-      <label
-        for="page-url"
-        class="form-label"
-      >URL <span class="visually-hidden">de la page</span>
-        <span
-          class="text-danger"
-          aria-hidden="true"
-        >*</span>
-      </label>
+    <div class="form-floating mb-3">
       <input
         type="text"
         class="form-control"
         id="page-url"
         v-model="tempPage.url"
-        required
-      >
+        placeholder=""
+        required>
+      <label
+        for="page-url"
+        class="form-label">URL <span class="visually-hidden">de la page</span>
+        <span
+          class="text-danger"
+          aria-hidden="true">*</span>
+      </label>
     </div>
 
     <!-- DESCRIPTION  -->
-    <div class="mb-3">
-      <label
-        for="page-description"
-        class="form-label"
-      >Description</label>
+    <div class="form-floating mb-3">
       <textarea
         class="form-control"
         id="page-description"
         rows="4"
-        v-model="tempPage.description"
-      >
+        placeholder=""
+        v-model="tempPage.description">
       </textarea>
+      <label
+        for="page-description"
+        class="form-label">Description</label>
     </div>
 
     <!-- tags -->

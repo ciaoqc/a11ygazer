@@ -168,6 +168,10 @@ hr {
   border-color: $ciao-white;
 }
 
+textarea {
+  min-height: 120px !important;
+}
+
 a[href^="http"]::after,
 a[href^="https:\/\/"]::after {
   content: "";

@@ -12,24 +12,18 @@ const projectStore = useProjectStore()
 const project = computed(() => projectStore.currentProject)
 const issueModalVisible = ref<boolean>(false)
 const pageModalVisible = ref<boolean>(false)
-const criticalIssues = ref([])
-// const importantIssues = ref([])
-// const moderateIssues = ref([])
-// const minorIssues = ref([])
 
 const showIssueModal = () => {
   issueModalVisible.value = true
 }
 
+const hideIssueModal = () => {
+  issueModalVisible.value = false
+}
+
 const showPageModal = () => {
   pageModalVisible.value = true
 }
-
-// onload = () => {
-// if (project) {
-// }
-//   criticalIssues.value = project?.issuesFilteredBySeverity('critical').value.length
-// }
 
 </script>
 
@@ -124,9 +118,9 @@ const showPageModal = () => {
             type="button"
             class="btn btn-primary btn"
             @click="showIssueModal">
-            <i
+            <!-- <i
               class="bi bi-bug-fill ms-2"
-              aria-hidden="true"></i>
+              aria-hidden="true"></i> -->
             <span class="">Ajouter un problème</span>
           </button>
         </div>
@@ -151,17 +145,12 @@ const showPageModal = () => {
             type="button"
             class="btn btn-primary"
             @click="showPageModal">
-            <i
+            <!-- <i
               class="bi bi-file-earmark-plus-fill ms-2"
-              aria-hidden="true"></i>
+              aria-hidden="true"></i> -->
             <span class="d-none d-md-inline">Ajouter une page</span>
           </button>
         </div>
-      </section>
-
-      <!-- Report -->
-      <section>
-        <hr aria-hidden="true">
       </section>
 
     </aside>
@@ -171,12 +160,12 @@ const showPageModal = () => {
   <IssueModal
     v-model="issueModalVisible"
     mode="create"
-    size="modal-lg" />
+    size="modal-lg"
+    @close="hideIssueModal" />
 
   <PageModal
     v-model="pageModalVisible"
-    mode="create"
-    size="modal-lg" />
+    mode="create" />
 </template>
 
 <style>

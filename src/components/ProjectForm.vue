@@ -26,124 +26,110 @@ watch(
   <form
     v-if="tempProject"
     class="needs-validation"
-    autocomplete="off"
-  >
+    autocomplete="off">
 
     <!-- TITLE  -->
-    <div class="mb-3">
-      <label
-        for="project-title"
-        class="form-label"
-      >Nom <span class="visually-hidden">du projet</span> <span
-          class="text-danger"
-          aria-hidden="true"
-        >*</span></label>
+    <div class="form-floating mb-3">
       <input
         type="text"
         class="form-control"
         id="project-title"
         v-model="tempProject.title"
-        autofocus
-        required
-      >
+        placeholder=""
+        required>
+      <label
+        for="project-title"
+        class="form-label">Nom <span class="visually-hidden">du projet</span>
+        <span
+          class="text-danger"
+          aria-hidden="true"> *</span>
+      </label>
     </div>
 
     <!-- CONFORMITY -->
-    <div class="mb-3">
-      <label
-        for="project-conformity"
-        class="form-label"
-      >Niveau de conformité visé <span
-          class="text-danger"
-          aria-hidden="true"
-        >*</span></label>
+    <div class="form-floating mb-3">
       <select
         id="project-conformity"
         class="form-select"
+        placeholder=""
         v-model="tempProject.conformity"
-        required
-      >
+
+        required>
         <option
           value="SGQRI00820"
-          aria-label="essgékuèri zéro zéro huit, 2.0"
-        >SGQRI-008 2.0</option>
+          aria-label="essgékuèri zéro zéro huit, 2.0">SGQRI-008 2.0</option>
         <option
           value="WCAG20A"
-          aria-label="WÉCAG 2.0 niveau A"
-        >WCAG 2.0 niveau A</option>
+          aria-label="WÉCAG 2.0 niveau A">WCAG 2.0 niveau A</option>
         <option
           value="WCAG20AA"
           aria-label="WÉCAG 2.0 niveau double A"
-          selected
-        >WCAG 2.0 niveau AA</option>
+          selected>WCAG 2.0 niveau AA</option>
         <option
           value="WCAG20AAA"
-          aria-label="WÉCAG 2.0 niveau triple A"
-        >WCAG 2.0 niveau AAA</option>
+          aria-label="WÉCAG 2.0 niveau triple A">WCAG 2.0 niveau AAA</option>
         <option
           value="WCAG21A"
-          aria-label="WÉCAG 2.1 niveau A"
-        >WCAG 2.1 niveau A</option>
+          aria-label="WÉCAG 2.1 niveau A">WCAG 2.1 niveau A</option>
         <option
           value="WCAG21AA"
-          aria-label="WÉCAG 2.1 niveau double A"
-        >WCAG 2.1 niveau AA</option>
+          aria-label="WÉCAG 2.1 niveau double A">WCAG 2.1 niveau AA</option>
         <option
           value="WCAG21AAA"
-          aria-label="WÉCAG 2.1 niveau triple A"
-        >WCAG 2.1 niveau AAA</option>
+          aria-label="WÉCAG 2.1 niveau triple A">WCAG 2.1 niveau AAA</option>
       </select>
+      <label
+        for="project-conformity"
+        class="form-label">Conformité visée <span
+          class="text-danger"
+          aria-hidden="true">*</span></label>
     </div>
 
     <!-- DESCRIPTION -->
-    <div class="mb-3">
-      <label
-        for="project-description"
-        class="form-label"
-      >Description</label>
+    <div class="form-floating mb-3">
       <textarea
         class="form-control"
         id="project-description"
+        placeholder=""
         rows="4"
-        v-model="tempProject.description"
-      >
-      </textarea>
+        v-model="tempProject.description">
+    </textarea>
+      <label
+        for="project-description"
+        class="form-label">Description</label>
     </div>
 
     <!-- CLIENT -->
-    <div class="mb-3">
-      <label
-        for="project-client"
-        class="form-label"
-      >Client</label>
+    <div class="form-floating mb-3">
       <input
         type="text"
         class="form-control"
         id="project-client"
-        v-model="tempProject.client"
-      >
+        placeholder=""
+        v-model="tempProject.client">
+      <label
+        for="project-client"
+        class="form-label">Client</label>
     </div>
 
     <!-- TAGS -->
-    <div class="mb-3">
+    <div class="form-floating mb-3">
       <label
         class="form-label"
-        for="ms-tags"
-      >Étiquettes</label>
-      <div>
-        <Multiselect
-          id="ms-tags"
-          mode="tags"
-          v-model="tempProject.tags"
-          :options="[
-            { value: 'awaiting_validation', label: 'En cours', icon: '', color: '#ff3300' },
-            { value: 'paused', label: 'En attente', icon: '', color: '#ff8800' },
-            { value: 'verified', label: 'Terminé', icon: '', color: '#ffcc00' },
-          ]"
-          :searchable="true"
-          :create-option="true"
-        />
-      </div>
+        for="ms-tags">Étiquettes</label>
+      <Multiselect
+        id="ms-tags"
+        mode="tags"
+        v-model="tempProject.tags"
+        class="form-control"
+        placeholder=""
+        :options="[
+          { value: 'awaiting_validation', label: 'En cours', icon: '', color: '#ff3300' },
+          { value: 'paused', label: 'En attente', icon: '', color: '#ff8800' },
+          { value: 'verified', label: 'Terminé', icon: '', color: '#ffcc00' },
+        ]"
+        :searchable="true"
+        :create-option="true" />
     </div>
 
   </form>
