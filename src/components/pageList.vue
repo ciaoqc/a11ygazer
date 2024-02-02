@@ -4,7 +4,7 @@ const props = defineProps(['pages'])
 </script>
 
 <template>
-  <ul v-if="props.pages.length" class="list-group">
+  <ul v-if="props.pages?.length" class="list-group">
     <li
       v-for="(url, index) in props.pages"
       :key="index"

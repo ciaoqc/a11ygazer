@@ -25,7 +25,7 @@ const openReport = () => {
         id="lbl-pages"
         class="flex-grow-1"
       >Détails</h2>
-      <div>
+      <!-- <div>
         <button
           role="tab"
           class="btn btn-outline-primary"
@@ -40,7 +40,7 @@ const openReport = () => {
             aria-hidden="true"
           ></i>
         </button>
-      </div>
+      </div> -->
     </div>
 
     <dl>
@@ -69,10 +69,10 @@ const openReport = () => {
       </button>
     </div>
 
-    <ProjectModal
+    <!-- <ProjectModal
       v-if="project"
       v-model="projectModalVisible"
       mode="edit"
-    />
+    /> -->
   </div>
 </template>

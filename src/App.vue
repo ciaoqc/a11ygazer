@@ -33,5 +33,5 @@ onMounted(() => {
   <!-- MAIN -->
   <main>
     <router-view />
-  </main>w
+  </main>
 </template>

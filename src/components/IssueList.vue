@@ -17,19 +17,16 @@ const emit = defineEmits<{
   <section>
     <div
       class="card w-100 shadow-sm"
-      style="width: 18rem;"
-    >
+      style="width: 18rem;">
       <ul class="list-group list-group-flush">
         <li
           class="list-group-item list-group-item-action"
           v-for="issue in project?.issues"
           :key="issue._id"
-          @click="emit('select', issue)"
-        >
+          @click="emit('select', issue)">
           <Issue
             :issue="issue"
-            mode="listitem"
-          />
+            mode="listitem" />
         </li>
       </ul>
     </div>

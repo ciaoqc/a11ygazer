@@ -8,39 +8,7 @@ import type { IIssue, IPage, IProject as ISharedProject } from '../shared/interf
 import type { TIssueSeverity } from '../shared/types'
 
 // const apiUrl = import.meta.env.VUE_APP_API_URL
-const apiUrl = 'http://127.0.0.1:3000'
-// const apiUrl = 'http://accessibilite.ciao.ca:3000'
-
-// TODO: PageStore??
-function createPageObject(partialPage: Partial<IPage>): IPage {
-  const page: IPage = {
-    _id: partialPage._id,
-    title: partialPage.title || '',
-    url: partialPage.url || '',
-    description: partialPage.description || '',
-    tags: partialPage.tags || [],
-    images: partialPage.images || [],
-  }
-  return page
-}
-
-function createIssueObject(partialIssue: Partial<IIssue>): IIssue {
-  const issue: IIssue = {
-    _id: partialIssue._id,
-    title: partialIssue.title || '(titre problème)',
-    description: partialIssue.description,
-    resolved: partialIssue.resolved || false,
-    pages: partialIssue.pages,
-    type: partialIssue.type,
-    wcagCritera: partialIssue.wcagCritera,
-    severity: partialIssue.severity,
-    solution: partialIssue.solution,
-    tags: partialIssue.tags,
-    images: partialIssue.images,
-  }
-
-  return issue
-}
+const apiUrl = `https://accessibilite.ciao.ca/api`
 
 // Interface frontend
 interface IProject extends ISharedProject {
@@ -154,10 +122,8 @@ export const useProjectStore = defineStore('projects', () => {
   async function updateProject(project: Partial<IProject>) {
     isLoading.value = true
     try {
-      console.log("###", project)
       const response = await axios.put(`${apiUrl}/projects`, project)
-      console.log('***', response.data)
-      const updatedProject = response.data
+      const updatedProject = createProjectObject(response.data)
 
       // Update local store
       projects.value.splice(projects.value.findIndex((p) => p._id === project._id), 1, updatedProject)
@@ -178,72 +144,14 @@ export const useProjectStore = defineStore('projects', () => {
     }
   }
 
-  /* -------------------------------------------------------------------------- */
-  /*                                   ISSUES                                   */
-  /* -------------------------------------------------------------------------- */
-
-  // CREATE ISSUE
-  async function createIssue(issue: Partial<IIssue>) {
-    isLoading.value = true
-    try {
-      const response = await axios.post(`${apiUrl}/projects/${currentProject.value?._id}/issues`, issue)
-      const createdIssue = createIssueObject(response.data)
-
-      if (currentProject.value) {
-        console.log('CREATEISSUE', currentProject.value?.issues)
-        if (currentProject.value?.issues)
-          currentProject.value.issues = [...currentProject.value.issues, createdIssue]
-        else
-          currentProject.value.issues = [createdIssue]
-      }
-    } catch (err: unknown) {
-      const apiError = err as AxiosError
-      console.error(`Erreur lors de la création du problème: ${apiError.message}`)
-      error.value = apiError.message || "Erreur lors de la création du problème."
-    } finally {
-      isLoading.value = false
-    }
-  }
-
-  // UPDATE ISSUE
-  async function updateIssue(issue: Partial<IIssue>) {
-    isLoading.value = true
-    try {
-      await axios.put(`${apiUrl}/projects/${currentProject.value?._id}/issues`, issue)
-    } catch (err: unknown) {
-      const apiError = err as AxiosError
-      console.error(`Erreur lors de la mise à jour du projet: ${apiError.message}`)
-      error.value = apiError.message || "Erreur lors de la mise à jour du projet."
-    } finally {
-      isLoading.value = false
-    }
-  }
-
-  // DELETE ISSUE
-  function deleteIssue(id: string) {
-    // const index = projects.value.findIndex(issue => issue._id === id)
-    // if (index !== -1) {
-    //   projects.value.splice(index, 1)
-    // }
-  }
-
   return {
     projects,
     currentProject,
     currentProjectId,
 
     fetchProjects,
-
     createProject,
     updateProject,
     deleteProject,
-
-    createIssue,
-    updateIssue,
-    deleteIssue,
-
-    // createPage,
-    // updatePage,
-    // deletePage,
   }
 })

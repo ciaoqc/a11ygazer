@@ -15,7 +15,7 @@ const currentRouteName = computed(() => router.currentRoute.value.name)
   <div class="container d-grid gap-3 fade show">
 
     <div
-      class="d-flex flex-column flex-md-row flex-lg-column  flex-xl-row"
+      class="d-flex flex-column flex-md-row flex-lg-column flex-xl-row"
       v-if="currentProject"
     >
       <!-- Project title -->

@@ -35,9 +35,6 @@ watch(
   { deep: true }, // pour une comparaison profonde
 )
 
-// watch(numericImpact, () => {
-// })
-
 </script>
 
 <template>
