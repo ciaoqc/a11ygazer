@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import type { IIssue } from '../../../shared/src/interfaces'
-import type { TIssueDisplayMode, TIssueSeverity, TIssueSeverityLabel } from '../../../shared/src/types'
+import type { IIssue } from '@/shared/interfaces.js'
+import type { TIssueDisplayMode, TIssueSeverity, TIssueSeverityLabel } from '@/shared/types'
 import { Marked } from 'marked'
 
 const marked = new Marked()
@@ -66,9 +66,9 @@ function getCoverImage(filename?: string): string {
         <div class="d-flex align-items-center">
           <h3 class="card-title flex-grow-1">{{ props.issue.title }}</h3>
           <div class="card-subtitle" :class="getImpactClass(props.issue.severity)"><span class="d-none d-md-inline">
-            Problème {{
-              impactLabels[props?.issue.severity || 'moderate'] }}
-          </span></div>
+              Problème {{
+                impactLabels[props?.issue.severity || 'moderate'] }}
+            </span></div>
         </div>
         <p class="text-wrap text-truncate" v-html="marked.parse(props.issue.description || '')"></p>
 

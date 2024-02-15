@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useProjectStore } from '@/stores/ProjectStore'
-import ProjectModal from '@/components/ProjectModal.vue'
 
 const store = useProjectStore()
 const project = computed(() => store.currentProject)
@@ -25,22 +24,6 @@ const openReport = () => {
         id="lbl-pages"
         class="flex-grow-1"
       >Détails</h2>
-      <!-- <div>
-        <button
-          role="tab"
-          class="btn btn-outline-primary"
-          :class="{ 'active': projectModalVisible }"
-          @click="showProjectModal"
-          aria-label="Modifier le projet"
-          title="Modifier"
-        >
-          <span class="visually-hidden">Modifier</span>
-          <i
-            class="bi bi-pencil"
-            aria-hidden="true"
-          ></i>
-        </button>
-      </div> -->
     </div>
 
     <dl>

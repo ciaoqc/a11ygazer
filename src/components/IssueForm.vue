@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import type { IIssue } from '@/shared/interfaces'
-import type { TIssueSeverity } from '@/shared/types';
-import Multiselect from '@vueform/multiselect'
 import { wcagCritera } from '@/shared/constants';
+import type { TIssueSeverity } from '@/shared/types';
+import type { IIssue } from '@/shared/interfaces'
+import Multiselect from '@vueform/multiselect'
 
 const tempIssue = ref<IIssue | null>({})
 const numericImpact = ref<number>(1)
@@ -132,64 +132,6 @@ watch(
       <div id="text-title-desc" class="form-text">Composant ou zone de la page concernée.</div>
     </div>
 
-    <!-- SEVERITY BUTTONS HORIZONTAL -->
-    <!-- <div class="mb-3">
-      <label
-        for="issue-type"
-        class="form-label">Impact
-        <span
-          class="text-danger"
-          aria-hidden="true">*</span>
-      </label>
-      <div class="btn-group w-100">
-        <input
-          type="radio"
-          v-model="tempIssue.severity"
-          class="btn-check"
-          value="minor"
-          name="severity2"
-          id="opt4"
-          autocomplete="off">
-        <label
-          class="btn btn-light btn-sm text-start"
-          for="opt4"><span class="impact impact-minor">Mineur</span></label>
-        <input
-          type="radio"
-          v-model="tempIssue.severity"
-          class="btn-check"
-          value="moderate"
-          name="severity2"
-          id="opt3"
-          autocomplete="off">
-        <label
-          class="btn btn-light btn-sm text-start"
-          for="opt3"><span class="impact impact-moderate">Modéré</span></label>
-        <input
-          type="radio"
-          v-model="tempIssue.severity"
-          class="btn-check"
-          value="important"
-          name="severity2"
-          id="opt2"
-          autocomplete="off">
-        <label
-          class="btn btn-light btn-sm text-start"
-          for="opt2"><span class="impact impact-important">Important</span></label>
-        <input
-          type="radio"
-          v-model="tempIssue.severity"
-          class="btn-check"
-          value="critical"
-          name="severity2"
-          id="opt1"
-          autocomplete="off">
-        <label
-          class="btn btn-light btn-sm text-start"
-          :class="{ btnDanger: true }"
-          for="opt1"><span class="impact impact-critical">Critique</span></label>
-      </div>
-    </div> -->
-
     <!-- DESCRIPTION -->
     <div class="form-floating mb-3">
       <textarea
@@ -221,7 +163,10 @@ watch(
     </div>
 
     <!-- WCAG -->
-    <div class="form-floating mb-3">
+    <div class="mb-3">
+      <label
+        for="ms-criteria"
+        class="form-label">Critère(s) WCAG apparenté(s)</label>
       <Multiselect
         id="ms-criteria"
         class="form-control"
@@ -231,14 +176,14 @@ watch(
         :options="msOptions"
         :searchable="true"
         :breakTags="true"></Multiselect>
-      <label
-        for="ms-criteria"
-        class="form-label">Critère(s) WCAG apparenté(s)</label>
     </div>
 
     <!-- TAGS -->
     <!-- TODO: options en function -->
-    <div class="form-floating mb-3">
+    <div class="mb-3">
+      <label
+        for="ms-tags"
+        class="form-label">Étiquette(s)</label>
       <Multiselect
         id="ms-tags"
         class="form-control"
@@ -252,13 +197,10 @@ watch(
         ]"
         :searchable="true"
         :createOption="true" />
-      <label
-        for="ms-tags"
-        class="form-label">Étiquette(s)</label>
     </div>
 
     <details class="mb-3">
-      <summary>
+      <summary class="form-label">
         Pages présentant ce problème
       </summary>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import ProjectList from './ProjectList.vue'
+import ProjectList from '@/components/ProjectList.vue'
 import { ref, onMounted } from 'vue'
 import { Offcanvas } from 'bootstrap'
 import ProjectModal from '@/components/ProjectModal.vue'

@@ -2,7 +2,7 @@
 
 import { onMounted, ref, computed, watch } from 'vue'
 import { useProjectStore } from '@/stores/ProjectStore'
-import type { IProject } from '../shared/interfaces'
+import type { IProject } from '@/shared/interfaces'
 import ProjectForm from '@/components/ProjectForm.vue'
 import ModalDialog from '@/components/ModalDialog.vue'
 import { Modal } from 'bootstrap'
@@ -114,15 +114,15 @@ function updateProject() {
   <ModalDialog
     v-if="tempProject"
     v-model="dialogVisible"
-    :title="modalTitle || '🤔'"
-  >
+    size="modal-lg"
+    :aria-label="modalTitle || '🤔'"
+    :title="modalTitle || '🤔'">
 
     <!-- PROJECT form -->
     <ProjectForm
       v-model="tempProject"
       @input="validateForm"
-      mode="create"
-    />
+      mode="create" />
 
     <!-- FOOTER buttons -->
     <template #footer>
@@ -131,8 +131,7 @@ function updateProject() {
       <button
         type="button"
         class="btn btn-link text-dark"
-        @click="hide"
-      >Annuler</button>
+        @click="hide">Annuler</button>
 
       <!-- Create or... -->
       <button
@@ -140,8 +139,7 @@ function updateProject() {
         type="button"
         class="btn btn-primary"
         @click="createProject"
-        :disabled="!formValid"
-      >
+        :disabled="!formValid">
         Créer
       </button>
 
@@ -151,8 +149,7 @@ function updateProject() {
         type="button"
         class="btn btn-primary"
         @click="updateProject"
-        :disabled="!formValid"
-      >
+        :disabled="!formValid">
         Mettre à jour
       </button>
     </template>

@@ -2,7 +2,7 @@
 import { watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProjectStore } from './stores/ProjectStore'
-import MainMenu from './components/MainMenu.vue'
+import MainMenu from '@/components/MainMenu.vue'
 
 const route = useRoute()
 const projectStore = useProjectStore()
@@ -20,18 +20,20 @@ watch(
 )
 
 onMounted(() => {
-  projectStore.fetchProjects().then()
+  projectStore.fetchProjects()
 })
 </script>
 
 <template>
-  <!-- MENU -->
-  <div class="mb-4">
+  <header class="mb-4">
     <MainMenu />
-  </div>
+  </header>
 
-  <!-- MAIN -->
-  <main>
+  <main class="mb-3">
     <router-view />
   </main>
+
+  <footer class="fixed-bottom text-center bg-light border-top">
+    &copy;2024 Ciao
+  </footer>
 </template>

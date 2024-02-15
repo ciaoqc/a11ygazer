@@ -7,7 +7,7 @@ import router from './router'
 import VueCookies from 'vue-cookies'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import '@/scss/custom.scss'
+import '@/scss/bootstrap-ciao.scss'
 import 'bootstrap'
 
 const pinia = createPinia()

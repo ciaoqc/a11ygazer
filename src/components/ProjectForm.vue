@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import type { IProject } from '@/shared/interfaces'
+import type { IProject } from '@/shared/interfaces.js'
 import Multiselect from '@vueform/multiselect'
 
 const tempProject = ref<IProject | null>(null)
@@ -28,23 +28,44 @@ watch(
     class="needs-validation"
     autocomplete="off">
 
-    <!-- TITLE  -->
-    <div class="form-floating mb-3">
-      <input
-        type="text"
-        class="form-control"
-        id="project-title"
-        v-model="tempProject.title"
-        placeholder=""
-        required>
-      <label
-        for="project-title"
-        class="form-label">Nom <span class="visually-hidden">du projet</span>
-        <span
-          class="text-danger"
-          aria-hidden="true"> *</span>
-      </label>
+    <div class="row mb-3">
+
+      <!-- TITLE  -->
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="project-title"
+            v-model="tempProject.title"
+            placeholder=""
+            required>
+          <label
+            for="project-title"
+            class="form-label">Nom <span class="visually-hidden">du projet</span>
+            <span
+              class="text-danger"
+              aria-hidden="true"> *</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- CLIENT -->
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="project-client"
+            placeholder=""
+            v-model="tempProject.client">
+          <label
+            for="project-client"
+            class="form-label">Client</label>
+        </div>
+      </div>
     </div>
+
 
     <!-- CONFORMITY -->
     <div class="form-floating mb-3">
@@ -99,21 +120,8 @@ watch(
         class="form-label">Description</label>
     </div>
 
-    <!-- CLIENT -->
-    <div class="form-floating mb-3">
-      <input
-        type="text"
-        class="form-control"
-        id="project-client"
-        placeholder=""
-        v-model="tempProject.client">
-      <label
-        for="project-client"
-        class="form-label">Client</label>
-    </div>
-
     <!-- TAGS -->
-    <div class="form-floating mb-3">
+    <div class="mb-3">
       <label
         class="form-label"
         for="ms-tags">Étiquettes</label>

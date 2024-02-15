@@ -2,7 +2,7 @@
 
 import { onMounted, ref, watch } from 'vue'
 import { useProjectStore } from '@/stores/ProjectStore'
-import type { IIssue } from '../shared/interfaces'
+import type { IIssue } from '@/shared/interfaces'
 import IssueForm from '@/components/IssueForm.vue'
 import ModalDialog from '@/components/ModalDialog.vue'
 import { Modal } from 'bootstrap'
