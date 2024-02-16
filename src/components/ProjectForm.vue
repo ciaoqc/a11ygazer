@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import type { IProject } from '@/shared/interfaces.js'
+import type { IProject } from '../shared/interfaces.js'
 import Multiselect from '@vueform/multiselect'
 
 const tempProject = ref<IProject | null>(null)
@@ -31,7 +31,7 @@ watch(
     <div class="row mb-3">
 
       <!-- TITLE  -->
-      <div class="col">
+      <div class="col-7">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -51,7 +51,7 @@ watch(
       </div>
 
       <!-- CLIENT -->
-      <div class="col">
+      <div class="col-5">
         <div class="form-floating mb-3">
           <input
             type="text"

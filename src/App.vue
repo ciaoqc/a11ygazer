@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="mb-4">
+  <header class="mb-3">
     <MainMenu />
   </header>
 
@@ -33,7 +33,7 @@ onMounted(() => {
     <router-view />
   </main>
 
-  <footer class="fixed-bottom text-center bg-light border-top">
-    &copy;2024 Ciao
+  <footer class="fixed-bottom text-center bg-light border-top opacity-50">
+    &copy;2024 <a href="https://ciao.ca" target="_blank" class="text-dark">Ciao</a>
   </footer>
 </template>

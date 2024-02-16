@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useProjectStore } from '@/stores/ProjectStore'
+import { useProjectStore } from '../stores/ProjectStore'
 
 const projectStore = useProjectStore()
 const currentProject = computed(() => projectStore.currentProject)

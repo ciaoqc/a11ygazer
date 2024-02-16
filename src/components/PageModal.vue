@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, computed, watch } from 'vue'
-import { useProjectStore } from '@/stores/ProjectStore'
-import type { IPage } from '@/shared/interfaces'
+import { useProjectStore } from '../stores/ProjectStore'
+import type { IPage } from '../shared/interfaces'
 import PageForm from './PageForm.vue';
 import ModalDialog from '@/components/ModalDialog.vue'
 import { Modal } from 'bootstrap'

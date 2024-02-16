@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import type { IIssue } from '@/shared/interfaces.js'
-import type { TIssueDisplayMode, TIssueSeverity, TIssueSeverityLabel } from '@/shared/types'
+import type { IIssue } from '../shared/interfaces'
+import type { TIssueDisplayMode, TIssueSeverity, TIssueSeverityLabel } from '../shared/types'
 import { Marked } from 'marked'
 
 const marked = new Marked()
@@ -39,25 +39,6 @@ function getCoverImage(filename?: string): string {
 </script>
 
 <template>
-  <!-- GRID (default mode)-->
-  <div role="listitem" v-if="mode === 'griditem' || mode === 'default' || !mode">
-    <a href="#" class="card shadow-sm text-decoration-none" tabindex="0">
-      <img :src="getCoverImage(props.issue.images ? props.issue.images[0] : undefined)"
-        class="img-fluid object-fit-cover card-image" alt="">
-      <div class="card-body border-top">
-        <div class="text-right">
-          <h3 class="card-title">{{ props.issue.title }}</h3>
-          <div class="d-flex flex-column">
-            <p class="card-subtitle" :class="getImpactClass(props.issue.severity)">
-              Impact {{ impactLabels[props?.issue.severity || 'moderate'] }}
-            </p>
-          </div>
-        </div>
-        <div class="card-text text-wrap text-truncate" v-html="marked.parse(props.issue.description || '')"></div>
-      </div>
-    </a>
-  </div>
-
   <!-- LIST -->
   <div role="listitem" v-if="mode === 'listitem'">
     <a href="#" class="text-decoration-none text-black">
@@ -76,33 +57,3 @@ function getCoverImage(filename?: string): string {
     </a>
   </div>
 </template>
-
-<style scoped>
-.card {
-  cursor: pointer;
-  min-height: 25rem;
-  max-height: 25rem;
-  height: 25rem;
-}
-
-a.card:hover,
-a.card:focus {
-  outline: 3px #fe5000 solid;
-}
-
-.card-image {
-  height: 8rem;
-  max-height: 8rem;
-  min-height: 8rem;
-  filter: opacity(50%) saturate(5%);
-  transition: filter 0.3s;
-}
-
-.card:hover .card-image {
-  filter: opacity(100%) saturate(100%);
-}
-
-.card-text {
-  margin-top: 1em;
-}
-</style>

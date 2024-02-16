@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import { onMounted, ref, watch } from 'vue'
-import { useProjectStore } from '@/stores/ProjectStore'
-import type { IIssue } from '@/shared/interfaces'
+import { useProjectStore } from '../stores/ProjectStore'
+import type { IIssue } from '../shared/interfaces'
 import IssueForm from '@/components/IssueForm.vue'
 import ModalDialog from '@/components/ModalDialog.vue'
 import { Modal } from 'bootstrap'
@@ -84,20 +84,20 @@ function initDialog() {
 
 function createIssue() {
   if (tempIssue.value) {
-    projectStore.createIssue({
-      title: tempIssue.value.title,
-      description: tempIssue.value.description,
-      type: tempIssue.value.type,
-      severity: tempIssue.value.severity,
-      resolved: tempIssue.value.resolved,
-      wcagCritera: tempIssue.value.wcagCritera,
-    })
+    // projectStore.createIssue({
+    //   title: tempIssue.value.title,
+    //   description: tempIssue.value.description,
+    //   type: tempIssue.value.type,
+    //   severity: tempIssue.value.severity,
+    //   resolved: tempIssue.value.resolved,
+    //   wcagCritera: tempIssue.value.wcagCritera,
+    // })
     emit('update:modelValue', false)
   }
 }
 
 function updateIssue() {
-  projectStore.updateIssue({ ...tempIssue.value })
+  // projectStore.updateIssue({ ...tempIssue.value })
   emit('update:modelValue', false)
 }
 

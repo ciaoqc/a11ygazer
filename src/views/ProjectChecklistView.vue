@@ -1,7 +1,6 @@
 <script setup lang="ts">
 </script>
 
-
 <template>
   <fieldset class="opacity-50">
     <legend>Validations</legend>

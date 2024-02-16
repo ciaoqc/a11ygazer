@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useProjectStore } from '@/stores/ProjectStore'
+import { useProjectStore } from '../stores/ProjectStore'
 import { Marked } from 'marked'
 import PageList from '@/components/pageList.vue'
 import IssueModal from '@/components/IssueModal.vue'

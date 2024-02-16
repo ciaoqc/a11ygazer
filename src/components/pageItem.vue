@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IPage } from '@/shared/interfaces';
+import type { IPage } from '../shared/interfaces';
 
 const props = defineProps<{
   page: IPage,

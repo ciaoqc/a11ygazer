@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useProjectStore } from '@/stores/ProjectStore'
-import type { IIssue } from '@/shared/interfaces'
+import { useProjectStore } from '../stores/ProjectStore'
+import type { IIssue } from '../shared/interfaces'
 import Issue from '@/components/IssueItem.vue'
 
 const projectStore = useProjectStore()

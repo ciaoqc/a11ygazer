@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useProjectStore } from '@/stores/ProjectStore'
+import { useProjectStore } from '../stores/ProjectStore'
 import { useRouter } from 'vue-router'
 import { computed } from 'vue'
 

@@ -1,27 +1,23 @@
 <script lang="ts" setup>
-
 </script>
-
 
 <template>
   <section class="d-block mb-3 text-center opacity-50">
     <a
       href="/mock-report.html"
       target="_blank"
-      class="btn btn-primary"
-    >Ouvrir le rapport dans une nouvelle fenêtre</a>
+      class="btn btn-primary">Ouvrir le rapport dans une nouvelle fenêtre</a>
   </section>
 
   <section class="d-block opacity-50">
     <iframe
       src="/mock-report.html"
       frameborder="1"
-      aria-label="rapport"
-    ></iframe>
+      aria-label="rapport"></iframe>
   </section>
 </template>
 
-<style>
+<style lang="scss">
 iframe {
   width: 100%;
   height: 65vh;

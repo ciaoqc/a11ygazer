@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import type { IPage } from '@/shared/interfaces'
+import type { IPage } from '../shared/interfaces'
 
 const tempPage = ref<IPage | null>(null)
 

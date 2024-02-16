@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useProjectStore } from '@/stores/ProjectStore'
+import { useProjectStore } from '../stores/ProjectStore'
 import Multiselect from '@vueform/multiselect'
 import type { IIssue } from '../../../shared/src/interfaces'
 

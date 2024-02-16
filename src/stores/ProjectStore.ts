@@ -17,6 +17,35 @@ interface IProject extends ISharedProject {
   issuesFilteredBySeverity(severity: TIssueSeverity): Ref<IIssue[]>,
   issuesFilteredByCritera(wcagSC: string): Ref<IIssue[]>
 }
+function createPageObject(partialPage: Partial<IPage>): IPage {
+  const page: IPage = {
+    _id: partialPage._id,
+    title: partialPage.title || '',
+    url: partialPage.url || '',
+    description: partialPage.description || '',
+    tags: partialPage.tags || [],
+    images: partialPage.images || [],
+  }
+  return page
+}
+
+function createIssueObject(partialIssue: Partial<IIssue>): IIssue {
+  const issue: IIssue = {
+    _id: partialIssue._id,
+    title: partialIssue.title,
+    description: partialIssue.description,
+    resolved: partialIssue.resolved,
+    pages: partialIssue.pages,
+    type: partialIssue.type,
+    wcagCritera: partialIssue.wcagCritera,
+    severity: partialIssue.severity,
+    solution: partialIssue.solution,
+    tags: partialIssue.tags,
+    images: partialIssue.images,
+  }
+
+  return issue
+}
 
 function createProjectObject(partialProject: Partial<IProject>): IProject {
   const project: IProject = {

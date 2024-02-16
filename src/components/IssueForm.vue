@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import { wcagCritera } from '@/shared/constants';
-import type { TIssueSeverity } from '@/shared/types';
-import type { IIssue } from '@/shared/interfaces'
+import { wcagCritera } from '../shared/constants';
+import type { TIssueSeverity } from '../shared/types';
+import type { IIssue } from '../shared/interfaces'
 import Multiselect from '@vueform/multiselect'
 
 const tempIssue = ref<IIssue | null>({})

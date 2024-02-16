@@ -2,10 +2,10 @@
 import { onMounted, computed, ref, inject } from 'vue'
 import type { Ref } from 'vue'
 import type { VueCookies } from 'vue-cookies'
-import { useProjectStore } from '@/stores/ProjectStore'
-import type { IIssue } from '@/shared/interfaces'
-import type { TIssueSeverityLabel, TIssueWeight } from '@/shared/types'
-import IssueGrid from '@/components/IssueGrid.vue'
+import { useProjectStore } from '../stores/ProjectStore'
+import type { IIssue } from '../shared/interfaces'
+import type { TIssueSeverityLabel, TIssueWeight } from '../shared/types'
+// import IssueGrid from '@/components/IssueGrid.vue'
 import IssueList from '@/components/IssueList.vue'
 import IssueModal from '@/components/IssueModal.vue'
 
@@ -124,47 +124,40 @@ onMounted(() => {
       <button
         type="button"
         class="btn btn-sm btn-primary"
-        @click="showNewIssueModal"
-      >
+        @click="showNewIssueModal">
         <span>Ajouter un problème</span>
         <i
           class="bi-plus"
-          aria-hidden="true"
-        ></i>
+          aria-hidden="true"></i>
       </button>
 
       <fieldset>
         <legend
           id="display-mode"
-          class="d-none"
-        >
+          class="d-none">
           <span class="visually-hidden">Type d'</span>Affichage
         </legend>
 
         <div
           class="btn-group"
           role="toolbar"
-          aria-labelledby="display-mode"
-        >
+          aria-labelledby="display-mode">
 
           <!-- Display grid -->
-          <input
+          <!-- <input
             type="radio"
             name="display-mode"
             id="displaygrid"
             class="btn-check"
             :checked="displayMode === 'grid' ? true : false"
-            @click="displayMode = 'grid'"
-          >
+            @click="displayMode = 'grid'">
           <label
             class="btn btn-light"
-            for="displaygrid"
-          >
+            for="displaygrid">
             <i
               class="bi-grid"
-              aria-hidden="true"
-            ></i>Grille
-          </label>
+              aria-hidden="true"></i>Grille
+          </label> -->
 
           <!-- Display list -->
           <input
@@ -173,16 +166,13 @@ onMounted(() => {
             id="displaylist"
             class="btn-check"
             :checked="displayMode === 'list' ? true : false"
-            @click="displayMode = 'list'"
-          >
+            @click="displayMode = 'list'">
           <label
             class="btn btn-light"
-            for="displaylist"
-          >
+            for="displaylist">
             <i
               class="bi-list"
-              aria-hidden="true"
-            ></i>Liste
+              aria-hidden="true"></i>Liste
           </label>
 
           <!-- Display spreadsheet -->
@@ -192,16 +182,13 @@ onMounted(() => {
             name="display-mode"
             class="btn-check"
             :checked="displayMode == 'spreadsheet' ? true : false"
-            @click="displayMode = 'spreadsheet'"
-          >
+            @click="displayMode = 'spreadsheet'">
           <label
             class="btn btn-light"
-            for="displayspreadsheet"
-          >
+            for="displayspreadsheet">
             <i
               class="bi-table"
-              aria-hidden="true"
-            ></i>Tableur
+              aria-hidden="true"></i>Tableur
           </label>
 
         </div>
@@ -210,18 +197,17 @@ onMounted(() => {
     </div>
 
     <!-- Display grid -->
-    <IssueGrid
+    <!-- <IssueGrid
       v-if="displayMode === 'grid'"
       :issues="currentProject?.issues"
       @select="showEditIssueModal"
-    />
+    /> -->
 
     <!-- Display list -->
     <IssueList
       v-if="displayMode === 'list'"
       :issues="currentProject?.issues"
-      @select="showEditIssueModal"
-    />
+      @select="showEditIssueModal" />
 
     <!-- Display spreadsheet -->
     <section>
@@ -229,8 +215,7 @@ onMounted(() => {
         v-if="displayMode === 'spreadsheet'"
         :grid-options="gridOptions"
         style="min-height: 70vh; height: 70vh;"
-        class="ag-theme-alpine w-100"
-      >
+        class="ag-theme-alpine w-100">
       </ag-grid-vue>
     </section>
   </div>
@@ -245,28 +230,12 @@ onMounted(() => {
     v-model="issueModalVisible"
     :mode="issueModalMode"
     :issue="tempIssue || {}"
-    size="modal-lg"
-  />
+    size="modal-lg" />
 </template>
 
 <styles lang="scss">
-.ag-theme-alpine {
-  --ag-header-column-separator-display: block;
-  --ag-header-column-separator-height: 100%;
-  --ag-header-column-separator-width: 2px;
-  --ag-header-column-separator-color: purple;
-
-  --ag-header-column-resize-handle-display: block;
-  --ag-header-column-resize-handle-height: 25%;
-  --ag-header-column-resize-handle-width: 5px;
-  --ag-header-column-resize-handle-color: orange;
-}
-
-.ag-theme-alpine .ag-header {
-  background-color: #4b79c3;
-}
-
 .ag-theme-alpine .ag-header-group-cell {
   font-weight: normal;
   font-size: 22px;
-}</styles>
+}
+</styles>

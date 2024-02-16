@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ag-grid-community/vue3": "^30.2.0",
+    "@babel/types": "^7.23.9",
     "@types/bootstrap": "^5.2.8",
     "@vueform/multiselect": "^2.6.6",
     "ag-grid-enterprise": "^30.2.0",
